@@ -11,3 +11,36 @@ Lazy evaluated functions written in TypeScript, and inspired by Haskell.
 > - The ability to define partially-defined data structures where some elements are errors. This allows for rapid prototyping
 
 [source](https://en.wikipedia.org/wiki/Lazy_evaluation)
+
+## How to use
+
+```bash
+$ git clone git@github.com:kerron/ts-hs.git
+$ npm install
+$ npm run dev
+```
+
+## Example
+
+### Lazy Sum
+
+```js
+/**
+ * This function uses lazy evaluation.
+ * 1 + 5 is not evaluated until it is called within the lazy sum fn.
+ * That because the arguments to `sum` are functions, which are invoked
+ * only when needed.
+ */
+export const sum: TLazySum = (a, b) => {
+  return () => a() + b();
+};
+
+console.log(
+  sum(
+    () => 1 + 5,
+    () => 4
+  )()
+); // 10
+```
+
+See `TLazySum` type [here]()
