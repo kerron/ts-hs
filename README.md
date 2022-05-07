@@ -43,4 +43,4 @@ console.log(
 ); // 10
 ```
 
-See `TLazySum` type [here]()
+See `TLazySum` type [here](https://github.com/kerron/ts-hs/blob/main/src/types/types.ts)
