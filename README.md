@@ -15,7 +15,7 @@ Lazy evaluated functions written in TypeScript, and inspired by Haskell.
 ## How to use
 
 ```bash
-$ git clone git@github.com:kerron/ts-hs.git
+$ npm i ts-hs
 $ npm install
 $ npm run dev
 ```
