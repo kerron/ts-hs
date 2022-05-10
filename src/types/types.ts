@@ -9,3 +9,7 @@ export type TLogicalOperator = (
   b: TLazy<boolean>
 ) => TLazy<boolean>;
 
+export type TLazyList<T> = TLazy<{
+  head: TLazy<T>;
+  tail: TLazyList<T>;
+} | null>;
