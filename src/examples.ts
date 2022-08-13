@@ -1,5 +1,7 @@
 import { sum } from "@ts-hs/lazy";
+import { and } from "@ts-hs/lazy/and/and";
 import range from "@ts-hs/lazy/range/range";
+import trace from "@ts-hs/lazy/trace/trace";
 import { strictSum } from "@ts-hs/strict";
 
 /**
@@ -40,3 +42,16 @@ console.log(
     .tail()!
     .head()
 ); // 3
+
+/**
+ * and:
+ * This function uses lazy evaluation.
+ * The first argument is evaluated only when needed.
+ * The second argument is evaluated only if the first argument is true.
+ */
+console.log(
+  and(
+    trace(() => false, "left evaluated"),
+    trace(() => true, "right evaluated")
+  )()
+); // left evaluated
