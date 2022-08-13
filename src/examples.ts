@@ -1,6 +1,10 @@
 import { sum } from "@ts-hs/lazy";
 import { and } from "@ts-hs/lazy/and/and";
+import filter from "@ts-hs/lazy/filter/filter";
+import primes from "@ts-hs/lazy/primes/primes";
+import printList from "@ts-hs/lazy/printList/printList";
 import range from "@ts-hs/lazy/range/range";
+import take from "@ts-hs/lazy/take/take";
 import trace from "@ts-hs/lazy/trace/trace";
 import { strictSum } from "@ts-hs/strict";
 
@@ -55,3 +59,22 @@ console.log(
     trace(() => true, "right evaluated")
   )()
 ); // left evaluated
+
+console.log(
+  printList(
+    take(
+      () => 10,
+      filter(
+        (x) => x % 2 === 0,
+        range(() => 1)
+      )
+    )
+  )
+); // 2 4 6 8 10 12 14 16 18 20
+
+/**
+ * primes:
+ * This function uses lazy evaluation.
+ * It returns the first 10 primes from a lazy list of all primes.
+ */
+printList(take(() => 10, primes));
